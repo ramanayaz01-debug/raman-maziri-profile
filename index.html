@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Raman Maziri — Personal Profile">
+  <title>Raman Maziri | ڕامان مزیری</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --surface: #0d1b2d;
+      --surface-2: #12253b;
+      --text: #f4f8ff;
+      --muted: #a9b8ca;
+      --accent: #63e6be;
+      --accent-2: #6ea8fe;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 24px 70px rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+                   "Segoe UI", Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .app {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(99,230,190,.16), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(110,168,254,.18), transparent 30%),
+        var(--bg);
+      padding: 24px;
+    }
+    .nav {
+      max-width: 1050px;
+      margin: 0 auto 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: .2px;
+      font-size: 20px;
+    }
+    .lang button {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 9px 14px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .lang button:hover { background: rgba(255,255,255,.11); }
+    main { max-width: 1050px; margin: auto; }
+    .hero {
+      min-height: 500px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 28px;
+      align-items: center;
+      padding: 48px;
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(18,37,59,.92), rgba(8,20,35,.92));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero:before {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: rgba(99,230,190,.10);
+      filter: blur(12px);
+      top: -150px;
+      right: -100px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: .98;
+      letter-spacing: -2px;
+    }
+    .subtitle {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.8;
+      max-width: 650px;
+    }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-weight: 800;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+    }
+    .btn.primary {
+      background: var(--accent);
+      color: #06131a;
+      border-color: transparent;
+    }
+    .avatar {
+      width: min(290px, 70vw);
+      aspect-ratio: 1;
+      margin: auto;
+      border-radius: 42px;
+      display: grid;
+      place-items: center;
+      font-size: 82px;
+      font-weight: 900;
+      background:
+        linear-gradient(145deg, rgba(99,230,190,.85), rgba(110,168,254,.9));
+      color: #06131a;
+      box-shadow: 0 25px 60px rgba(0,0,0,.3);
+      transform: rotate(3deg);
+    }
+    .section {
+      margin-top: 22px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: rgba(13,27,45,.86);
+    }
+    .section h2 { margin: 0 0 18px; font-size: 28px; }
+    .about {
+      color: var(--muted);
+      line-height: 2;
+      font-size: 17px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(255,255,255,.035);
+    }
+    .icon { font-size: 28px; margin-bottom: 12px; }
+    .card h3 { margin: 0 0 8px; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.7; }
+    footer {
+      max-width: 1050px;
+      margin: 22px auto 0;
+      padding: 18px 4px 8px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+    @media (max-width: 760px) {
+      .app { padding: 14px; }
+      .hero { grid-template-columns: 1fr; padding: 30px 22px; text-align: center; }
+      .actions { justify-content: center; }
+      .cards { grid-template-columns: 1fr; }
+      .section { padding: 24px 20px; }
+      .avatar { width: 190px; font-size: 58px; }
+    }
+    [dir="ltr"] .nav { direction: ltr; }
+    [dir="ltr"] .hero, [dir="ltr"] .section { text-align: left; }
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+    <nav class="nav">
+      <div class="brand">RAMAN</div>
+      <div class="lang">
+        <button id="languageBtn" type="button" aria-label="Change language">کوردی / English</button>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow" data-ku="پڕۆفایلی کەسی" data-en="Personal Profile">پڕۆفایلی کەسی</div>
+          <h1>ڕامان مزیری</h1>
+          <p class="subtitle"
+             data-ku="کەسێک لە هەولێر، کورد��تان — ئەمە پەڕەی پڕۆفایلی تایبەتییەکەمە."
+             data-en="From Erbil, Kurdistan — welcome to my personal profile.">
+            کەسێک لە هەولێر، کوردستان — ئەمە پەڕەی پڕۆفایلی تایبەتییەکەمە.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#about" data-ku="دەربارەی من" data-en="About Me">دەربارەی من</a>
+            <a class="btn" href="#contact" data-ku="پەیوەندی" data-en="Contact">پەیوەندی</a>
+          </div>
+        </div>
+        <div class="avatar" aria-label="Raman Maziri">RM</div>
+      </section>
+
+      <section class="section" id="about">
+        <h2 data-ku="دەربارەی من" data-en="About Me">دەربارەی من</h2>
+        <p class="about"
+           data-ku="من ڕامان مزیری‌م، لە هەولیر. ئەم سایتە پڕۆفایلێکی سادە و کەسییە بۆ ناساندنی من و پیشاندانی زانیارییە سەرەکییەکانم."
+           data-en="I'm Raman Maziri, based in Erbil. This is my simple personal profile for introducing myself and sharing key information.">
+          من ڕامان مزیری‌م، لە هەولیر. ئەم سایتە پڕۆفایلێکی سادە و کەسییە بۆ ناساندنی من و پیشاندانی زانیارییە سەرەکییەکانم.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 data-ku="زانیاری" data-en="Details">زانیاری</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">📍</div>
+            <h3 data-ku="شوێن" data-en="Location">شوێن</h3>
+            <p data-ku="هەولێر، کوردستان" data-en="Erbil, Kurdistan">هەولێر، کوردستان</p>
+          </article>
+          <article class="card">
+            <div class="icon">🌐</div>
+            <h3 data-ku="زمان" data-en="Languages">زمان</h3>
+            <p data-ku="کوردی و ئینگلیزی" data-en="Kurdish & English">کوردی و ئینگلیزی</p>
+          </article>
+          <article class="card" id="contact">
+            <div class="icon">👋</div>
+            <h3 data-ku="پەیوەندی" data-en="Contact">پەیوەندی</h3>
+            <p data-ku="بەم بەشە دەتوانین زانیارییەکانی پەیوەندی زیاد بکەین."
+               data-en="Contact details can be added here.">
+              بەم بەشە دەتوانین زانیارییەکانی پەیوەندی زیاد بکەین.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Raman Maziri — Erbil
+    </footer>
+  </div>
+
+  <script>
+    let lang = "ku";
+    const button = document.getElementById("languageBtn");
+    const root = document.getElementById("app");
+
+    function setLanguage(next) {
+      lang = next;
+      document.documentElement.lang = lang === "ku" ? "ku" : "en";
+      document.documentElement.dir = lang === "ku" ? "rtl" : "ltr";
+      document.querySelectorAll("[data-ku]").forEach((el) => {
+        el.textContent = el.dataset[lang === "ku" ? "ku" : "en"];
+      });
+      button.textContent = lang === "ku" ? "کوردی / English" : "English / کوردی";
+    }
+
+    button.addEventListener("click", () => setLanguage(lang === "ku" ? "en" : "ku"));
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
